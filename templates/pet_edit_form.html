@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}edit{% endblock %}
+{% block content %}
+<div class="container">
+  <h1 class="display-1 text-center mb-4">Edit a Pet Form</h1>
+  <div class="row justify-content-center">
+  <div class="col-md-8">
+  <form method="POST">
+    <!-- {{ form.photo_url.label }}
+    {{ form.photo_url(class_="form-control form-control-lg") }}
+    {{ form.notes.label(class_="mt-3") }}
+    {{ form.notes(class_="form-control form-control-lg") }}
+    {{ form.available.label(class_="mt-3") }}
+    {{ form.available }} -->
+    <!--add type=hidden form fields -->
+    {{ form.hidden_tag() }} 
+  
+    {% for field in form
+           if field.widget.input_type != 'hidden' %}
+      <div class="form-group">
+        {{ field.label }}
+        {% if "available" == field.label %}
+        {{ field(class_="mb-3") }}
+        {% else %}
+        {{ field(class_="form-control mb-3") }}
+        {% endif %}
+  
+        {% for error in field.errors %}
+        <small class="form-text text-danger">
+          {{ error }}
+        </small>
+        {% endfor %}
+      </div>
+  
+    {% endfor %}
+    <a href="/" class="btn btn-primary">Home</a>
+    <button class="btn btn-outline-success">Submit</button>
+  </form>
+</div>
+</div>
+</div>
+{% endblock %}}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}detail{% endblock %}
+{% block content %}
+<div class="container">
+<h1>Say Hello to {{ pet.name }}!</h1>
+<p>Species: {{ pet.species }}</p>
+{% if pet.photo_url %}
+<img src="{{ pet.default_image() }}" class="img-thumbnail" alt="{{ pet.species }}">
+{% endif %}
+{% if pet.age %}
+<p>Species: {{ pet.age }}</p>
+{% endif %}
+{% if pet.notes %}
+<p>Species: {{ pet.notes }}</p>
+{% endif %}
+<form>
+    <button formaction="/" class="btn btn-success">Home</button>
+    <button formaction="/{{ pet.id }}/edit" class="btn btn-primary">Edit</button>
+</form>
+</div>
+{% endblock %}}
