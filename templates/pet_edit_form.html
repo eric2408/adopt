@@ -19,8 +19,8 @@
            if field.widget.input_type != 'hidden' %}
       <div class="form-group">
         {{ field.label }}
-        {% if "available" == field.label %}
-        {{ field(class_="mb-3") }}
+        {% if field.id == "available" %}
+        {{ field(class_="form-check-input mb-3") }}
         {% else %}
         {{ field(class_="form-control mb-3") }}
         {% endif %}
